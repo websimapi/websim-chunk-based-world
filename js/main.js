@@ -39,6 +39,9 @@ class Game {
         // Initialize database manager
         this.dbManager = new DatabaseManager(this.room);
         
+        // Initialize world data
+        await this.dbManager.initializeWorldData();
+        
         // Initialize world manager with database manager
         this.worldManager = new WorldManager(this.scene, this.dbManager);
         
@@ -98,4 +101,3 @@ class Game {
 window.addEventListener('load', () => {
     const game = new Game();
 });
-
